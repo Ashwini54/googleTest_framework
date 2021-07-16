@@ -1,1 +1,0 @@
-# googleTest_framework
