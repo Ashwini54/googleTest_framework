@@ -49,17 +49,15 @@ jobs:
       #run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 #       run: /home/runner/work/googleTest_framework/googleTest_framework-main cmake CMakeLists.txt && make
       
-    - name: configure 
-      run:  cmake CMakeLists.txt 
-      working-directory: ${{env.working-directory}}
-    - name: make the build file
-      run:  make
+    - name: configure, make and build
+      run:  ls && cd googleTest_framework-main && ls && cmake CMakeLists.txt && make && ls
+#       working-directory: ${{env.working-directory}}
     - name: Test
 #       working-directory: ${{github.workspace}}/build
       # Execute tests defined by the CMake configuration.  
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-      run: cd  /googleTest_framework/goolgeTest_framework-main &&./executeTests
-      working-directory: ${{env.working-directory}}
+      run: ls && cd goolgeTest_framework-main &&./executeTests
+#       working-directory: ${{env.working-directory}}
       
 #     environment: TZ=Asia/Kolkata
 
@@ -76,3 +74,4 @@ jobs:
 #       run: cd build && make
 #     - name: Run Test
 #       run: /home/runner/work/github_actions_gtest_example/github_actions_gtest_example/build/test/github_actions_gtest_example.test
+
