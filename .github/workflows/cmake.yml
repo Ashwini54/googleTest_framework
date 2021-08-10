@@ -7,8 +7,10 @@ on:
     branches: [ main ]
 
 env:
+  working-directory: ./googleTest_framework/googleTest_framework-main
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
+  
 
 jobs:
   build:
@@ -49,6 +51,7 @@ jobs:
       
     - name: configure 
       run:  cmake CMakeLists.txt 
+      working-directory: ${{env.working-directory}}
     - name: make the build file
       run:  make
     - name: Test
@@ -56,6 +59,7 @@ jobs:
       # Execute tests defined by the CMake configuration.  
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: cd  /googleTest_framework/goolgeTest_framework-main &&./executeTests
+      working-directory: ${{env.working-directory}}
       
 #     environment: TZ=Asia/Kolkata
 
