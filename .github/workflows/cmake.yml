@@ -37,7 +37,7 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       #run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-      run: cmake CMakeLists.txt ${{github.workspace}} && make
+      run: /home/runner/work/googleTest_framework/googleTest_framework-main cmake CMakeLists.txt && make
       
     - name: Test
 #       working-directory: ${{github.workspace}}/build
