@@ -38,15 +38,19 @@ jobs:
        cmake -Bbuild -H$GITHUB_WORKSPACE \
        -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_STANDARD=14 \
        -DCATCH_DEVELOPMENT_BUILD=ON -DCATCH_BUILD_EXAMPLES=ON \
-       -DCATCH_BUILD_EXTRA_TESTS=ON
-      shell: /bin/bash -e {0}
+#        -DCATCH_BUILD_EXTRA_TESTS=ON
+      shell: sh
       env: 
          CXX: g++-9
     - name: Build
       # Build your program with the given configuration
       #run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-      run: /home/runner/work/googleTest_framework/googleTest_framework-main cmake CMakeLists.txt && make
+#       run: /home/runner/work/googleTest_framework/googleTest_framework-main cmake CMakeLists.txt && make
       
+    - name: configure 
+      run:  cmake CMakeLists.txt 
+    - name: make the build file
+      run:  make
     - name: Test
 #       working-directory: ${{github.workspace}}/build
       # Execute tests defined by the CMake configuration.  
