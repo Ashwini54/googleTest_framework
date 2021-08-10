@@ -19,7 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install gtest 
-      run: apt-get install -y tzdata && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && apt-get install -y cmake
+    
+      run: sudo rm /var/lib/dpkg/lock-frontend && sudo dpkg --configure -a && apt-get install -y tzdata && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && apt-get install -y cmake
 #     - uses: actions/checkout@v2
     - name: configure
       run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" ..
