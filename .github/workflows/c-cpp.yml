@@ -18,7 +18,7 @@ jobs:
     - name: Build
       run: ls && cd googleTest_framework-main && ls && cmake CMakeLists.txt && make && ls
     - name: Test
-      run: ls && cd googleTest_framework-main && ls
+      run: ls && cd googleTest_framework-main && ls && ./executeTests
 #       && ./executeTests
   
 #     - name: configure
