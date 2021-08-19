@@ -20,5 +20,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build
       run: /home/runner/work/googleTest_framework/googleTest_framework-main cmake CMakeLists.txt && make
-    - name: Test
-      run: cd  /googleTest_framework/goolgeTest_framework-main &&./executeTests
+#     - name: Test
+#       run: cd  /googleTest_framework/goolgeTest_framework-main &&./executeTests
